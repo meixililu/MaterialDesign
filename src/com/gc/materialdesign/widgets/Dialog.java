@@ -2,6 +2,7 @@ package com.gc.materialdesign.widgets;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -29,6 +30,7 @@ public class Dialog extends android.app.Dialog{
 	ButtonFlat buttonCancel;
 	
 	String buttonCancelText;
+	String buttonAcceptText;
 	
 	View.OnClickListener onAcceptButtonClickListener;
 	View.OnClickListener onCancelButtonClickListener;
@@ -43,6 +45,9 @@ public class Dialog extends android.app.Dialog{
 	
 	public void addCancelButton(String buttonCancelText){
 		this.buttonCancelText = buttonCancelText;
+	}
+	public void addAcceptButton(String buttonAcceptText){
+		this.buttonAcceptText = buttonAcceptText;
 	}
 	
 	public void addCancelButton(String buttonCancelText, View.OnClickListener onCancelButtonClickListener){
@@ -80,6 +85,9 @@ public class Dialog extends android.app.Dialog{
 	    setMessage(message);
 	    
 	    this.buttonAccept = (ButtonFlat) findViewById(R.id.button_accept);
+	    if(!TextUtils.isEmpty(buttonAcceptText)){
+	    	this.buttonAccept.setText(buttonAcceptText);
+	    }
 	    buttonAccept.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -107,7 +115,7 @@ public class Dialog extends android.app.Dialog{
 	
 	@Override
 	public void show() {
-		// TODO 自动生成的方法存根
+		// TODO 鑷姩鐢熸垚鐨勬柟娉曞瓨鏍�
 		super.show();
 		// set dialog enter animations
 		view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.dialog_main_show_amination));
