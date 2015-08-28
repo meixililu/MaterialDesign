@@ -59,7 +59,7 @@ public class ButtonFloat extends Button{
 	}
 	
 	protected void setDefaultProperties(){
-		rippleSpeed = Utils.dpToPx(2, getResources());
+		rippleSpeed = Utils.dpToPx(8, getResources());
 		rippleSize = Utils.dpToPx(5, getResources());
 		setMinimumWidth(Utils.dpToPx(sizeRadius*2, getResources()));
 		setMinimumHeight(Utils.dpToPx(sizeRadius*2, getResources()));
@@ -147,9 +147,9 @@ public class ButtonFloat extends Button{
 	public void setDrawableIcon(Drawable drawableIcon) {
 		this.drawableIcon = drawableIcon;
 		try {
-			icon.setBackground(drawableIcon);
+			icon.setImageDrawable(drawableIcon);
 		} catch (NoSuchMethodError e) {
-			icon.setBackgroundDrawable(drawableIcon);
+			icon.setImageDrawable(drawableIcon);
 		}
 	}
 
